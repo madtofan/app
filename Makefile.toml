@@ -1,3 +1,6 @@
 [tasks.serve]
 command = "trunk"
 args = ["serve"]
+
+[tasks.style]
+command = "npx tailwindcss -i ./styles/input.css -o ./styles/output.css --watch"

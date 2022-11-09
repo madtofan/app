@@ -1,6 +1,5 @@
 use crate::{components::navigation::Navigation, routes::router::Route};
 use yew::prelude::*;
-use yew_bootstrap::component::{Button, ButtonSize};
 
 pub struct ProjectsContent;
 

@@ -11,3 +11,6 @@
 ## TO ADD DEPENDENCIES
 - Developer can install cargo-edit by running `cargo install cargo-edit`
 - Dependencies can now be installed via `cargo add <crate name>`
+
+## OPTIONAL
+- Install NodeJs and run `npm install` to install node packages

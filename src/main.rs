@@ -1,7 +1,6 @@
 mod components;
 mod pages;
 mod routes;
-use components::navigation::Navigation;
 use routes::router::{switch, Route};
 use yew::prelude::*;
 use yew_router::prelude::*;
