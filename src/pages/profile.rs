@@ -1,4 +1,7 @@
-use crate::{components::navigation::Navigation, routes::router::Route};
+use crate::{
+    components::navigation::Navigation, routes::router::Route,
+    templates::sidebar_template::SidebarTemplate,
+};
 use yew::prelude::*;
 use yew_bootstrap::component::{Button, ButtonSize};
 
@@ -34,9 +37,8 @@ impl Component for ProfileContent {
 #[function_component(ProfilePage)]
 pub fn profile_page() -> Html {
     html! {
-        <>
-            <Navigation active_link={Route::Profile}/>
+        <SidebarTemplate>
             <ProfileContent />
-        </>
+        </SidebarTemplate>
     }
 }
