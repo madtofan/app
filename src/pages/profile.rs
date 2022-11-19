@@ -1,27 +1,12 @@
-use crate::{
-    components::navigation::Navigation, routes::router::Route,
-    templates::sidebar_template::SidebarTemplate,
-};
+use crate::templates::sidebar_template::SidebarTemplate;
 use yew::prelude::*;
 use yew_bootstrap::component::{Button, ButtonSize};
 
-pub struct ProfileContent {}
-
-impl Component for ProfileContent {
-    type Message = ();
-    type Properties = ();
-
-    fn create(_ctx: &Context<Self>) -> Self {
-        Self {}
-    }
-
-    fn update(&mut self, _ctx: &Context<Self>, _msg: Self::Message) -> bool {
-        false
-    }
-
-    fn view(&self, _ctx: &Context<Self>) -> Html {
-        html! {
-            <main class="container">
+#[function_component(ProfilePage)]
+pub fn profile_page() -> Html {
+    html! {
+        <SidebarTemplate>
+            <div class="flex-grow justify-center items-center w-max h-max">
                 <h1>{"Hi"}</h1>
                 <p class="lead">
                     {"My name is Ahmad"}
@@ -29,16 +14,7 @@ impl Component for ProfileContent {
                     {"A Malaysian Fullstack Developer and Technology Enthusiast"}
                 </p>
                 <Button size={ButtonSize::Small}>{"test"}</Button>
-            </main>
-        }
-    }
-}
-
-#[function_component(ProfilePage)]
-pub fn profile_page() -> Html {
-    html! {
-        <SidebarTemplate>
-            <ProfileContent />
+            </div>
         </SidebarTemplate>
     }
 }
