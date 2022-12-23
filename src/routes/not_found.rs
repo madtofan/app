@@ -1,5 +1,4 @@
 use yew::prelude::*;
-use yew_bootstrap::component::{Button, ButtonSize};
 
 pub struct NotFound {}
 
@@ -24,7 +23,7 @@ impl Component for NotFound {
                         <br/>
                         {"You seemed misguided, here take this wooden stick to help you on your journey"}
                     </p>
-                    <Button size={ButtonSize::Small}>{"test"}</Button>
+                    <button type="button">{"test"}</button>
             </main>
         }
     }

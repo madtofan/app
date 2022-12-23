@@ -1,31 +1,20 @@
-use std::any::Any;
-use yew_router::history::Location;
+use yew::prelude::*;
 
 use super::dropdown::Dropdown;
-use crate::routes::router::Route;
 use yew::{function_component, html, use_state, Callback, Properties};
-use yew_router::{
-    hooks::{use_location, use_route},
-    prelude::AnyLocation,
-};
+use yew_hooks::use_location;
 
 #[derive(Clone, PartialEq, Properties)]
-pub struct NavigationProps {
-    pub active_link: Route,
-}
+pub struct NavigationProps {}
 
 #[function_component(Navigation)]
-pub fn dropdown(props: &NavigationProps) -> Html {
+pub fn dropdown(_props: &NavigationProps) -> Html {
     const ACTIVE_CLASS: &str = "block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline";
     const INACTIVE_CLASS: &str = "block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline";
 
     let is_open = use_state(|| false);
     let location = use_location();
-
-    let current_route: String = match location {
-        Some(loc) => loc.pathname(),
-        None => "".to_string(),
-    };
+    let pathname = &location.pathname;
 
     let onclick = {
         let is_open = is_open.clone();
@@ -53,28 +42,28 @@ pub fn dropdown(props: &NavigationProps) -> Html {
                 false => "hidden"
               })
             }>
-              <a class={match current_route.as_str() {
+              <a class={match pathname.as_str() {
                 "/" => ACTIVE_CLASS,
                 _ => INACTIVE_CLASS
               }} href="/">{ "Profile" }</a>
-              <a class={match current_route.as_str() {
+              <a class={match pathname.as_str() {
                 "/projects" => ACTIVE_CLASS,
                 _ => INACTIVE_CLASS
               }} href="/projects">{ "Projects" }</a>
-              <a class={match current_route.as_str() {
+              <a class={match pathname.as_str() {
                 "/contact" => ACTIVE_CLASS,
                 _ => INACTIVE_CLASS
               }} href="/contact">{ "Contact" }</a>
               <Dropdown>
-              <a class={match current_route.as_str() {
+              <a class={match pathname.as_str() {
                 "/404" => ACTIVE_CLASS,
                 _ => INACTIVE_CLASS
               }} href="#">{ "Link #1" }</a>
-              <a class={match current_route.as_str() {
+              <a class={match pathname.as_str() {
                 "/404" => ACTIVE_CLASS,
                 _ => INACTIVE_CLASS
               }} href="#">{ "Link #2" }</a>
-              <a class={match current_route.as_str() {
+              <a class={match pathname.as_str() {
                 "/404" => ACTIVE_CLASS,
                 _ => INACTIVE_CLASS
               }} href="#">{ "Link #3" }</a>

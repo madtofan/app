@@ -1,4 +1,4 @@
-use crate::templates::sidebar_template::SidebarTemplate;
+use crate::components::templates::sidebar_template::SidebarTemplate;
 use yew::prelude::*;
 
 #[function_component(ProjectsPage)]

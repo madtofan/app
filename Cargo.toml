@@ -1,5 +1,5 @@
 [package]
-name = "portfolio-rust-app"
+name = "app"
 version = "0.1.0"
 authors = ["Ahmad Zainul Abidin <ahmadclab@gmail.com>"]
 edition = "2021"
@@ -7,6 +7,25 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-yew = "0.19.3"
-yew-bootstrap = "0.4.0"
-yew-router = "0.16.0"
+serde = { version = "1.0.151", features = ["derive"] }
+yew = { version = "0.20.0", features = ["csr"] }
+yew-router = "0.17.0"
+yew-hooks = "0.2.0"
+gloo = "0.8.0"
+lazy_static = "1.4.0"
+parking_lot = "0.12.1"
+reqwest = { version = "0.11.13", features = ["json"] }
+thiserror = "1.0.38"
+dotenv_codegen = "0.15.0"
+gloo-console = "0.2.3"
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+  "Document",
+  "Element",
+  "Node",
+  "Window",
+  "HtmlCollection",
+  "HtmlInputElement",
+]

@@ -1,8 +1,10 @@
 mod components;
-mod pages;
+mod hooks;
 mod routes;
-mod templates;
-use routes::router::{switch, Route};
+mod services;
+mod types;
+use components::context_provider::AppContext;
+use services::router::{switch, Route};
 use yew::prelude::*;
 use yew_router::prelude::*;
 
@@ -23,12 +25,14 @@ impl Component for App {
     fn view(&self, _ctx: &Context<Self>) -> Html {
         html! {
             <BrowserRouter>
-                <Switch<Route> render={Switch::render(switch)} />
+                <AppContext>
+                    <Switch<Route> render={switch} />
+                </AppContext>
             </BrowserRouter>
         }
     }
 }
 
 fn main() {
-    yew::start_app::<App>();
+    yew::Renderer::<App>::new().render();
 }

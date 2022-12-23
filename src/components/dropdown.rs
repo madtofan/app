@@ -1,4 +1,4 @@
-use yew::{function_component, html, use_state, Callback, Children, Properties};
+use yew::prelude::*;
 
 #[derive(Clone, PartialEq, Properties)]
 pub struct DropdownProps {
