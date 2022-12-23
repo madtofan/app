@@ -1,6 +1,5 @@
-use crate::templates::sidebar_template::SidebarTemplate;
+use crate::components::templates::sidebar_template::SidebarTemplate;
 use yew::prelude::*;
-use yew_bootstrap::component::{Button, ButtonSize};
 
 #[function_component(ContactPage)]
 pub fn contact_page() -> Html {
@@ -13,7 +12,7 @@ pub fn contact_page() -> Html {
                     <br/>
                     {"Email: ahmadclab@gmail.com"}
                 </p>
-                <Button size={ButtonSize::Small}>{"test"}</Button>
+                <button type="button">{"test"}</button>
             </div>
         </SidebarTemplate>
     }
