@@ -2,17 +2,24 @@ use yew::prelude::*;
 use yew_router::prelude::*;
 
 use crate::routes::{
-    contacts::ContactPage, login::LoginPage, not_found::NotFound, profile::ProfilePage,
-    projects::ProjectsPage, register::RegisterPage,
+    auth::{login::LoginPage, register::RegisterPage},
+    contacts::ContactPage,
+    profile::{edit_profile::EditProfilePage, profile::ProfilePage},
+    projects::ProjectsPage,
+    NotFound,
 };
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
-    #[at("/")]
+    // #[at("/")]
+    // Profile,
+    #[at("/profile")]
     Profile,
-    #[at("/login")]
+    #[at("/profile/edit")]
+    EditProfilePage,
+    #[at("/auth/login")]
     Login,
-    #[at("/register")]
+    #[at("/auth/register")]
     Register,
     #[at("/projects")]
     Projects,
@@ -26,6 +33,7 @@ pub enum Route {
 pub fn switch(route: Route) -> Html {
     match route {
         Route::Profile => html! {<ProfilePage />},
+        Route::EditProfilePage => html! {<EditProfilePage />},
         Route::Login => html! {<LoginPage />},
         Route::Projects => html! {<ProjectsPage/>},
         Route::Contact => html! {<ContactPage/>},
