@@ -11,8 +11,6 @@ use crate::routes::{
 
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
-    // #[at("/")]
-    // Profile,
     #[at("/profile")]
     Profile,
     #[at("/profile/edit")]

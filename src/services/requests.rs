@@ -51,7 +51,6 @@ where
     if allow_body {
         builder = builder.json(&body);
     }
-    gloo_console::log!(format!("Sending request"));
 
     let response = builder.send().await;
 
