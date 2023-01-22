@@ -3,7 +3,7 @@ mod hooks;
 mod routes;
 mod services;
 mod types;
-use components::context_provider::AppContext;
+use components::features::context_provider::AppContext;
 use services::router::{switch, Route};
 use yew::prelude::*;
 use yew_router::prelude::*;
